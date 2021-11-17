@@ -17,20 +17,8 @@ class Team(TeamBase, table=True):
 
     heroes: List["Hero"] = Relationship(back_populates="team")
 
-
-class TeamCreate(TeamBase):
-    pass
-
-
 class TeamRead(TeamBase):
     id: int
-
-
-class TeamUpdate(SQLModel):
-    id: Optional[int] = None
-    name: Optional[str] = None
-    headquarters: Optional[str] = None
-
 
 class TeamReadWithHeroes(TeamRead):
     heroes: List["HeroRead"] = []
